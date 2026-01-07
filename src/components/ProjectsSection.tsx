@@ -1,124 +1,112 @@
-import { ExternalLink, Hotel, Truck } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { ArrowUpRight, Hotel, Truck } from 'lucide-react';
 
 const projects = [
   {
-    icon: Hotel,
+    id: 1,
+    category: 'Full-Stack Design',
     title: 'Hotel Management System',
-    category: 'Full-Stack Application',
-    description:
-      'A comprehensive hotel management solution with room booking, food ordering, and administrative features.',
+    description: 'A comprehensive hotel management solution featuring room booking, food ordering, billing, and admin dashboard.',
     features: [
-      'Room availability and booking system',
-      'Food ordering from hotel menu',
-      'Automatic bill and invoice generation',
-      'Guest data storage and booking history',
-      'Admin dashboard for managing rooms & prices',
-      'Login and role management for admin and staff',
+      'Room availability & booking',
+      'Food ordering system',
+      'Auto bill generation',
+      'Admin dashboard',
+      'Role management',
     ],
-    tags: ['UI/UX', 'Dashboard', 'Admin Panel'],
-    color: 'from-primary/20 to-primary/5',
+    tags: ['UI/UX', 'Dashboard', 'Admin'],
+    icon: Hotel,
+    image: 'bg-gradient-to-br from-muted to-muted/50',
   },
   {
-    icon: Truck,
-    title: 'Smart Agricultural Distribution',
+    id: 2,
     category: 'IoT & Logistics',
-    description:
-      'Intelligent distribution system for fresh agricultural products using IoT and smart logistics.',
+    title: 'Smart Agri Distribution',
+    description: 'Intelligent distribution system for fresh agricultural products using IoT devices and smart logistics.',
     features: [
-      'Built using Python and IoT devices',
-      'Real-time tracking and monitoring',
-      'User-friendly dashboard for stakeholders',
-      'Blockchain integration for transparency',
-      'Secure data storage solutions',
+      'Python & IoT devices',
+      'Real-time tracking',
+      'Multi-user dashboard',
+      'Blockchain integration',
+      'Secure data storage',
     ],
-    tags: ['IoT', 'Python', 'Dashboard'],
-    color: 'from-green-500/20 to-green-500/5',
+    tags: ['IoT', 'Python', 'Blockchain'],
+    icon: Truck,
+    image: 'bg-gradient-to-br from-muted/80 to-muted/30',
   },
 ];
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="section-padding bg-secondary/30">
-      <div className="container mx-auto px-6">
+    <section id="projects" className="section-padding bg-muted/30">
+      <div className="container mx-auto px-6 lg:px-12">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            My Work
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Featured Projects
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Showcasing my academic and practice projects that demonstrate my design and technical skills
+        <div className="text-center mb-16 lg:mb-24">
+          <p className="text-[11px] tracking-[0.3em] text-muted-foreground mb-4">
+            PORTFOLIO
           </p>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl">
+            My Latest Projects
+          </h2>
         </div>
 
-        {/* Projects */}
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {projects.map((project, index) => (
-            <div
-              key={project.title}
-              className="group bg-card rounded-3xl overflow-hidden card-shadow hover:card-shadow-hover transition-all duration-300"
+        {/* Projects Grid */}
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {projects.map((project) => (
+            <article
+              key={project.id}
+              className="group bg-background rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500"
             >
-              {/* Project Header */}
-              <div className={`p-8 bg-gradient-to-br ${project.color}`}>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-14 h-14 rounded-2xl bg-card/80 backdrop-blur flex items-center justify-center">
-                    <project.icon className="w-7 h-7 text-primary" />
-                  </div>
-                  <div>
-                    <span className="text-sm text-muted-foreground">
-                      {project.category}
-                    </span>
-                    <h3 className="text-xl font-semibold text-foreground">
-                      {project.title}
-                    </h3>
+              {/* Project Image/Preview */}
+              <div className={`aspect-[4/3] ${project.image} relative overflow-hidden`}>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <project.icon className="w-20 h-20 text-foreground/10" />
+                </div>
+                
+                {/* Hover overlay */}
+                <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/5 transition-colors duration-500 flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <button className="w-14 h-14 rounded-full bg-background flex items-center justify-center shadow-lg">
+                      <ArrowUpRight className="w-5 h-5" />
+                    </button>
                   </div>
                 </div>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {project.description}
-                </p>
               </div>
 
-              {/* Project Details */}
-              <div className="p-8">
-                <h4 className="text-sm font-semibold text-foreground mb-4">
-                  Key Features
-                </h4>
-                <ul className="space-y-2 mb-6">
-                  {project.features.map((feature, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-start gap-3 text-sm text-muted-foreground"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+              {/* Project Info */}
+              <div className="p-6">
+                <p className="text-[10px] tracking-[0.2em] text-muted-foreground mb-2">
+                  {project.category.toUpperCase()}
+                </p>
+                <h3 className="font-display text-xl mb-3 group-hover:underline underline-offset-4">
+                  {project.title}
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                  {project.description}
+                </p>
+
+                {/* Features */}
+                <ul className="space-y-1 mb-4">
+                  {project.features.slice(0, 3).map((feature, idx) => (
+                    <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <span className="w-1 h-1 bg-foreground rounded-full" />
                       {feature}
                     </li>
                   ))}
                 </ul>
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 text-xs font-medium bg-secondary text-muted-foreground rounded-full"
+                      className="px-3 py-1 text-[10px] tracking-wide bg-muted rounded-full"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-
-                <Button
-                  variant="outline"
-                  className="group/btn rounded-full border-border hover:bg-secondary"
-                >
-                  View Project Details
-                  <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-0.5" />
-                </Button>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

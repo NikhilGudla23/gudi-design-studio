@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Phone, Linkedin, Send, MapPin } from 'lucide-react';
+import { Mail, Phone, Linkedin, MapPin, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -23,57 +23,58 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-secondary/30">
-      <div className="container mx-auto px-6">
+    <section id="contact" className="section-padding bg-muted/30">
+      <div className="container mx-auto px-6 lg:px-12">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            Get in Touch
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Let's Connect
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind or want to discuss opportunities? I'd love to hear from you!
+        <div className="text-center mb-16 lg:mb-24">
+          <p className="text-[11px] tracking-[0.3em] text-muted-foreground mb-4">
+            GET IN TOUCH
           </p>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl">
+            Let's Work Together
+          </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-16 max-w-5xl mx-auto">
           {/* Contact Info */}
           <div>
-            <h3 className="text-xl font-semibold text-foreground mb-6">
-              Contact Information
+            <h3 className="font-display text-2xl mb-6">
+              Have a project in mind?
             </h3>
-            <p className="text-muted-foreground mb-8 leading-relaxed">
-              Feel free to reach out through any of these channels. I'm always
-              open to discussing new projects, creative ideas, or opportunities
-              to be part of your vision.
+            <p className="text-muted-foreground leading-relaxed mb-10">
+              I'm always open to discussing new projects, creative ideas, 
+              or opportunities to be part of your vision. Feel free to 
+              reach out through any of these channels.
             </p>
 
-            <div className="space-y-4">
+            <div className="space-y-6">
               <a
                 href="mailto:nikhilgudla@email.com"
-                className="flex items-center gap-4 p-4 bg-card rounded-2xl card-shadow hover:card-shadow-hover transition-all duration-300 group"
+                className="flex items-center gap-4 group"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <Mail className="w-5 h-5 text-primary" />
+                <div className="w-12 h-12 rounded-full bg-background flex items-center justify-center group-hover:bg-foreground group-hover:text-background transition-colors">
+                  <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Email</p>
-                  <p className="text-foreground font-medium">nikhilgudla@email.com</p>
+                  <p className="text-[10px] tracking-[0.15em] text-muted-foreground mb-0.5">
+                    EMAIL
+                  </p>
+                  <p className="font-medium">nikhilgudla@email.com</p>
                 </div>
               </a>
 
               <a
                 href="tel:+919876543210"
-                className="flex items-center gap-4 p-4 bg-card rounded-2xl card-shadow hover:card-shadow-hover transition-all duration-300 group"
+                className="flex items-center gap-4 group"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <Phone className="w-5 h-5 text-primary" />
+                <div className="w-12 h-12 rounded-full bg-background flex items-center justify-center group-hover:bg-foreground group-hover:text-background transition-colors">
+                  <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Phone</p>
-                  <p className="text-foreground font-medium">+91 98765 43210</p>
+                  <p className="text-[10px] tracking-[0.15em] text-muted-foreground mb-0.5">
+                    PHONE
+                  </p>
+                  <p className="font-medium">+91 98765 43210</p>
                 </div>
               </a>
 
@@ -81,42 +82,42 @@ const ContactSection = () => {
                 href="https://linkedin.com/in/nikhilgudla"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 bg-card rounded-2xl card-shadow hover:card-shadow-hover transition-all duration-300 group"
+                className="flex items-center gap-4 group"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <Linkedin className="w-5 h-5 text-primary" />
+                <div className="w-12 h-12 rounded-full bg-background flex items-center justify-center group-hover:bg-foreground group-hover:text-background transition-colors">
+                  <Linkedin className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">LinkedIn</p>
-                  <p className="text-foreground font-medium">linkedin.com/in/nikhilgudla</p>
+                  <p className="text-[10px] tracking-[0.15em] text-muted-foreground mb-0.5">
+                    LINKEDIN
+                  </p>
+                  <p className="font-medium">linkedin.com/in/nikhilgudla</p>
                 </div>
               </a>
 
-              <div className="flex items-center gap-4 p-4 bg-card rounded-2xl card-shadow">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-primary" />
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-background flex items-center justify-center">
+                  <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Location</p>
-                  <p className="text-foreground font-medium">Hyderabad, India</p>
+                  <p className="text-[10px] tracking-[0.15em] text-muted-foreground mb-0.5">
+                    LOCATION
+                  </p>
+                  <p className="font-medium">Hyderabad, India</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Contact Form */}
-          <div className="bg-card p-8 rounded-3xl card-shadow">
-            <h3 className="text-xl font-semibold text-foreground mb-6">
-              Send a Message
-            </h3>
-
-            <form onSubmit={handleSubmit} className="space-y-5">
+          <div className="bg-background p-8 lg:p-10 rounded-2xl">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-foreground mb-2"
+                  className="block text-[11px] tracking-[0.15em] text-muted-foreground mb-3"
                 >
-                  Your Name
+                  YOUR NAME
                 </label>
                 <Input
                   id="name"
@@ -127,16 +128,16 @@ const ContactSection = () => {
                     setFormData({ ...formData, name: e.target.value })
                   }
                   required
-                  className="rounded-xl border-border bg-secondary/50 focus:bg-background"
+                  className="border-0 border-b border-border rounded-none px-0 focus-visible:ring-0 focus-visible:border-foreground bg-transparent"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-foreground mb-2"
+                  className="block text-[11px] tracking-[0.15em] text-muted-foreground mb-3"
                 >
-                  Your Email
+                  YOUR EMAIL
                 </label>
                 <Input
                   id="email"
@@ -147,37 +148,36 @@ const ContactSection = () => {
                     setFormData({ ...formData, email: e.target.value })
                   }
                   required
-                  className="rounded-xl border-border bg-secondary/50 focus:bg-background"
+                  className="border-0 border-b border-border rounded-none px-0 focus-visible:ring-0 focus-visible:border-foreground bg-transparent"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-foreground mb-2"
+                  className="block text-[11px] tracking-[0.15em] text-muted-foreground mb-3"
                 >
-                  Message
+                  MESSAGE
                 </label>
                 <Textarea
                   id="message"
-                  placeholder="Tell me about your project or opportunity..."
+                  placeholder="Tell me about your project..."
                   value={formData.message}
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
                   required
-                  rows={5}
-                  className="rounded-xl border-border bg-secondary/50 focus:bg-background resize-none"
+                  rows={4}
+                  className="border-0 border-b border-border rounded-none px-0 focus-visible:ring-0 focus-visible:border-foreground bg-transparent resize-none"
                 />
               </div>
 
               <Button
                 type="submit"
-                size="lg"
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl group"
+                className="w-full bg-foreground text-background hover:bg-foreground/90 rounded-full py-6 mt-4"
               >
                 Send Message
-                <Send className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <Send className="ml-2 h-4 w-4" />
               </Button>
             </form>
           </div>

@@ -1,93 +1,83 @@
-import { Palette, Layout, Lightbulb, PenTool, Layers } from 'lucide-react';
-
 const skills = [
-  {
-    icon: Palette,
-    title: 'UI Design',
-    description: 'Creating visually appealing interfaces with attention to color, typography, and layout.',
-    level: 'Learning',
-    progress: 60,
-  },
-  {
-    icon: Layout,
-    title: 'UX Design',
-    description: 'Understanding user needs and designing intuitive experiences that solve problems.',
-    level: 'Learning',
-    progress: 55,
-  },
-  {
-    icon: PenTool,
-    title: 'Wireframing',
-    description: 'Sketching low-fidelity layouts to plan structure and user flows effectively.',
-    level: 'Growing',
-    progress: 50,
-  },
-  {
-    icon: Layers,
-    title: 'Prototyping',
-    description: 'Building interactive prototypes to test and validate design concepts.',
-    level: 'Learning',
-    progress: 45,
-  },
-  {
-    icon: Lightbulb,
-    title: 'Design Thinking',
-    description: 'Applying human-centered approach to solve complex design challenges.',
-    level: 'Growing',
-    progress: 55,
-  },
+  { name: 'Figma', level: 75, icon: '◆' },
+  { name: 'UI Design', level: 70, icon: '◇' },
+  { name: 'UX Design', level: 65, icon: '○' },
+  { name: 'Wireframing', level: 60, icon: '□' },
+  { name: 'Prototyping', level: 55, icon: '△' },
+  { name: 'Design Thinking', level: 60, icon: '◈' },
 ];
 
 const SkillsSection = () => {
   return (
     <section id="skills" className="section-padding">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 lg:px-12">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            My Skills
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Skills & Expertise
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Continuously learning and improving my design skills through practice and projects
+        <div className="text-center mb-16 lg:mb-24">
+          <p className="text-[11px] tracking-[0.3em] text-muted-foreground mb-4">
+            MY ADVANTAGE
           </p>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl">
+            Skills & Tools
+          </h2>
         </div>
 
         {/* Skills Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {skills.map((skill, index) => (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12 max-w-5xl mx-auto">
+          {skills.map((skill) => (
             <div
-              key={skill.title}
-              className="group bg-card p-6 rounded-2xl card-shadow hover:card-shadow-hover transition-all duration-300 hover:-translate-y-1"
+              key={skill.name}
+              className="flex flex-col items-center text-center group"
             >
-              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-                <skill.icon className="w-7 h-7 text-primary" />
+              {/* Circular progress */}
+              <div className="relative w-24 h-24 mb-4">
+                <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
+                  {/* Background circle */}
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    fill="none"
+                    stroke="hsl(var(--muted))"
+                    strokeWidth="2"
+                  />
+                  {/* Progress circle */}
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    fill="none"
+                    stroke="hsl(var(--foreground))"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeDasharray={`${skill.level * 2.83} 283`}
+                    className="transition-all duration-1000 ease-out"
+                  />
+                </svg>
+                {/* Icon in center */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="text-2xl group-hover:scale-110 transition-transform">
+                    {skill.icon}
+                  </span>
+                </div>
               </div>
-
-              <div className="flex items-center justify-between mb-3">
-                <h3 className="text-lg font-semibold text-foreground">
-                  {skill.title}
-                </h3>
-                <span className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full">
-                  {skill.level}
-                </span>
-              </div>
-
-              <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                {skill.description}
+              
+              {/* Percentage */}
+              <p className="text-lg font-medium mb-1">{skill.level}%</p>
+              
+              {/* Skill name */}
+              <p className="text-xs text-muted-foreground tracking-wide">
+                {skill.name}
               </p>
-
-              {/* Progress bar */}
-              <div className="w-full h-2 bg-secondary rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-gradient-to-r from-primary to-primary/70 rounded-full transition-all duration-700"
-                  style={{ width: `${skill.progress}%` }}
-                />
-              </div>
             </div>
           ))}
+        </div>
+
+        {/* Additional info */}
+        <div className="mt-16 text-center">
+          <p className="inline-flex items-center gap-2 px-6 py-3 bg-muted/50 rounded-full text-sm text-muted-foreground">
+            <span className="w-2 h-2 bg-foreground rounded-full animate-pulse" />
+            Currently learning & growing
+          </p>
         </div>
       </div>
     </section>

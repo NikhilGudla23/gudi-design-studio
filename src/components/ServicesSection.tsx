@@ -1,95 +1,81 @@
-import { Paintbrush, FileSearch, LayoutDashboard, Users } from 'lucide-react';
+import { Paintbrush, FileSearch, LayoutDashboard, Handshake } from 'lucide-react';
 
 const services = [
   {
     icon: Paintbrush,
     title: 'UI/UX Design',
     status: 'Learning Stage',
-    description:
-      'Creating user-centered designs focusing on usability, accessibility, and visual appeal.',
+    description: 'Creating user-centered designs with focus on usability and visual appeal.',
   },
   {
     icon: FileSearch,
-    title: 'Wireframing & Prototyping',
+    title: 'Wireframing',
     status: 'Beginner',
-    description:
-      'Building low to high-fidelity wireframes and interactive prototypes for testing ideas.',
+    description: 'Building low to high-fidelity wireframes and interactive prototypes.',
   },
   {
     icon: LayoutDashboard,
     title: 'Dashboard Design',
-    status: 'Academic Projects',
-    description:
-      'Designing clean and functional dashboard interfaces for data visualization and management.',
+    status: 'Academic',
+    description: 'Designing clean dashboard interfaces for data visualization.',
   },
   {
-    icon: Users,
-    title: 'Collaboration',
-    status: 'Open to Work',
-    description:
-      'Eager to collaborate on design projects, internships, and learning opportunities.',
+    icon: Handshake,
+    title: 'Open to Work',
+    status: 'Available',
+    description: 'Seeking internships, collaborations, and learning opportunities.',
   },
 ];
 
 const ServicesSection = () => {
   return (
     <section id="services" className="section-padding">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 lg:px-12">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            Services
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+        <div className="text-center mb-16 lg:mb-24">
+          <p className="text-[11px] tracking-[0.3em] text-muted-foreground mb-4">
+            SERVICES
+          </p>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl">
             What I Can Offer
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            As a student designer, I'm actively seeking internships, learning opportunities, and collaborative projects
-          </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {services.map((service, index) => (
             <div
               key={service.title}
-              className="group relative bg-card p-8 rounded-3xl card-shadow hover:card-shadow-hover transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+              className="group p-8 bg-muted/30 rounded-2xl hover:bg-background hover:shadow-xl transition-all duration-500 text-center"
             >
-              {/* Background decoration */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-500" />
-
-              <div className="relative">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <service.icon className="w-7 h-7 text-primary" />
-                  </div>
-                  <span className="px-4 py-1.5 text-xs font-medium bg-secondary text-muted-foreground rounded-full">
-                    {service.status}
-                  </span>
-                </div>
-
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  {service.title}
-                </h3>
-
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {service.description}
-                </p>
+              <div className="w-16 h-16 mx-auto rounded-full bg-background group-hover:bg-muted flex items-center justify-center mb-6 transition-colors">
+                <service.icon className="w-7 h-7" />
               </div>
+
+              <span className="inline-block px-3 py-1 text-[10px] tracking-wide bg-muted rounded-full mb-4">
+                {service.status}
+              </span>
+
+              <h3 className="font-medium text-lg mb-3">{service.title}</h3>
+
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {service.description}
+              </p>
             </div>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-16">
-          <div className="inline-block bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 p-8 rounded-3xl">
-            <p className="text-lg text-foreground font-medium mb-2">
-              Looking for opportunities to grow
-            </p>
-            <p className="text-muted-foreground text-sm">
-              Open to internships, freelance projects, and design collaborations
-            </p>
-          </div>
+        <div className="mt-16 text-center">
+          <p className="text-muted-foreground mb-4">
+            Looking for opportunities to grow and learn
+          </p>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-foreground text-background rounded-full text-sm font-medium hover:bg-foreground/90 transition-colors"
+          >
+            Let's Connect
+          </a>
         </div>
       </div>
     </section>
