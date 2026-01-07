@@ -1,95 +1,123 @@
-import { GraduationCap, Calendar, MapPin, Target } from 'lucide-react';
+import { GraduationCap, Target, Lightbulb, Calendar } from 'lucide-react';
+
+const education = [
+  {
+    year: '2024 - 2027',
+    title: 'B.Tech in CSE–IoT',
+    institution: 'Sri Indu Institute of Engineering & Technology',
+    location: 'Hyderabad, India',
+  },
+];
+
+const experience = [
+  {
+    year: 'Present',
+    title: 'Learning UI/UX Design',
+    description: 'Self-learning through projects',
+  },
+  {
+    year: '2024',
+    title: 'Academic Projects',
+    description: 'Building practical experience',
+  },
+  {
+    year: '2023',
+    title: 'Started B.Tech Journey',
+    description: 'CSE–IoT Specialization',
+  },
+];
 
 const AboutSection = () => {
   return (
-    <section id="about" className="section-padding bg-secondary/30">
-      <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-              About Me
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Get to Know Me Better
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              A passionate learner dedicated to mastering the art of user experience design
-            </p>
-          </div>
+    <section id="about" className="section-padding bg-muted/30">
+      <div className="container mx-auto px-6 lg:px-12">
+        {/* Section Header */}
+        <div className="text-center mb-16 lg:mb-24">
+          <p className="text-[11px] tracking-[0.3em] text-muted-foreground mb-4">
+            ABOUT ME
+          </p>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl">
+            Education & Journey
+          </h2>
+        </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Bio */}
-            <div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">
-                My Journey
-              </h3>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                I'm Nikhil Gudla, a 3rd-year B.Tech student specializing in
-                Computer Science Engineering with IoT at Sri Indu Institute of
-                Engineering & Technology. My passion lies at the intersection of
-                technology and design.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                Currently in my learning stage, I'm building my skills through
-                hands-on projects and continuous exploration of UI/UX principles.
-                I believe that great design is about solving problems and creating
-                meaningful experiences for users.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                My goal is to become a skilled UI/UX Designer who can bridge the
-                gap between user needs and beautiful, functional interfaces.
-              </p>
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+          {/* Education */}
+          <div>
+            <h3 className="text-[11px] tracking-[0.2em] text-muted-foreground mb-8">
+              EDUCATION
+            </h3>
+            <div className="space-y-8">
+              {education.map((item, index) => (
+                <div key={index} className="border-l-2 border-foreground/10 pl-6">
+                  <p className="text-[11px] tracking-[0.15em] text-muted-foreground mb-2">
+                    {item.year}
+                  </p>
+                  <h4 className="text-lg font-medium mb-1">{item.title}</h4>
+                  <p className="text-sm text-muted-foreground">{item.institution}</p>
+                  <p className="text-sm text-muted-foreground">{item.location}</p>
+                </div>
+              ))}
             </div>
 
-            {/* Info Cards */}
-            <div className="space-y-4">
-              <div className="bg-card p-6 rounded-2xl card-shadow hover:card-shadow-hover transition-shadow duration-300">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <GraduationCap className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">Education</h4>
-                    <p className="text-muted-foreground text-sm">
-                      B.Tech in CSE–IoT
-                    </p>
-                    <p className="text-muted-foreground text-sm">
-                      Sri Indu Institute of Engineering & Technology
-                    </p>
-                  </div>
+            {/* Bio cards */}
+            <div className="mt-12 grid gap-4">
+              <div className="flex items-start gap-4 p-5 bg-background rounded-xl">
+                <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center flex-shrink-0">
+                  <Target className="w-5 h-5 text-foreground" />
+                </div>
+                <div>
+                  <h4 className="font-medium mb-1">Career Goal</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Building a career as a professional UI/UX Designer
+                  </p>
                 </div>
               </div>
+              <div className="flex items-start gap-4 p-5 bg-background rounded-xl">
+                <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center flex-shrink-0">
+                  <Lightbulb className="w-5 h-5 text-foreground" />
+                </div>
+                <div>
+                  <h4 className="font-medium mb-1">Current Focus</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Learning through hands-on projects and design challenges
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-              <div className="bg-card p-6 rounded-2xl card-shadow hover:card-shadow-hover transition-shadow duration-300">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Calendar className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">
-                      Expected Graduation
-                    </h4>
-                    <p className="text-muted-foreground text-sm">2027</p>
-                  </div>
+          {/* Journey / Experience */}
+          <div>
+            <h3 className="text-[11px] tracking-[0.2em] text-muted-foreground mb-8">
+              MY JOURNEY
+            </h3>
+            <div className="space-y-8">
+              {experience.map((item, index) => (
+                <div key={index} className="border-l-2 border-foreground/10 pl-6">
+                  <p className="text-[11px] tracking-[0.15em] text-muted-foreground mb-2">
+                    {item.year}
+                  </p>
+                  <h4 className="text-lg font-medium mb-1">{item.title}</h4>
+                  <p className="text-sm text-muted-foreground">{item.description}</p>
                 </div>
-              </div>
+              ))}
+            </div>
 
-              <div className="bg-card p-6 rounded-2xl card-shadow hover:card-shadow-hover transition-shadow duration-300">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Target className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">
-                      Career Goal
-                    </h4>
-                    <p className="text-muted-foreground text-sm">
-                      Building a career as a UI/UX Designer
-                    </p>
-                  </div>
-                </div>
-              </div>
+            {/* About text */}
+            <div className="mt-12 p-6 bg-background rounded-xl">
+              <h4 className="font-display text-xl mb-4">About Me</h4>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                I'm Nikhil Gudla, a 3rd-year B.Tech student specializing in 
+                Computer Science Engineering with IoT at Sri Indu Institute of 
+                Engineering & Technology.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                My passion lies at the intersection of technology and design. 
+                I believe great design is about solving problems and creating 
+                meaningful experiences for users. Currently in my learning stage, 
+                I'm actively building my skills through practical projects.
+              </p>
             </div>
           </div>
         </div>

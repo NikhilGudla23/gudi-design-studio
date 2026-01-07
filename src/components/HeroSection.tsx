@@ -1,89 +1,109 @@
-import { ArrowRight, Download } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import profilePhoto from '@/assets/profile-photo.jpg';
+
+const stats = [
+  { value: '3rd', label: 'Year Student' },
+  { value: '5+', label: 'Projects Done' },
+  { value: '100%', label: 'Dedication' },
+];
 
 const HeroSection = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen flex items-center pt-20"
     >
-      {/* Background decoration */}
-      <div className="absolute inset-0 hero-gradient" />
-      <div className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      <div className="container mx-auto px-6 lg:px-12">
+        {/* Main heading */}
+        <div className="text-center mb-12 lg:mb-16 animate-fade-up">
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
+            Nikhil Gudla
+            <br />
+            <span className="text-muted-foreground">UI/UX Designer</span>
+            <br />
+            <span className="font-display-italic">Based in India</span>
+          </h1>
+        </div>
 
-      <div className="container mx-auto px-6 pt-20">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Content */}
-          <div className="order-2 lg:order-1 text-center lg:text-left">
-            <div className="animate-fade-up">
-              <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-                UI/UX Designer (Aspiring)
-              </span>
+        <div className="grid lg:grid-cols-[1fr,auto,1fr] gap-8 lg:gap-12 items-center">
+          {/* Left content */}
+          <div className="order-2 lg:order-1 space-y-8 animate-fade-up-delay-1">
+            <div>
+              <p className="text-[11px] tracking-[0.2em] text-muted-foreground mb-3">
+                BIOGRAPHY
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                Passionate about design for purpose!
+                <br />
+                I'm Nikhil, an aspiring UI/UX
+                <br />
+                Designer & 3rd year B.Tech student
+                <br />
+                based in India.
+              </p>
             </div>
 
-            <h1 className="animate-fade-up-delay-1 text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
-              Hello, I'm{' '}
-              <span className="text-gradient">Nikhil Gudla</span>
-            </h1>
+            <div>
+              <p className="text-[11px] tracking-[0.2em] text-muted-foreground mb-3">
+                CONTACT
+              </p>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Hyderabad, India
+                <br />
+                nikhilgudla@email.com
+                <br />
+                +91 98765 43210
+              </p>
+            </div>
 
-            <p className="animate-fade-up-delay-2 text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
-              A passionate 3rd-year B.Tech student at Sri Indu Institute of
-              Engineering & Technology, on a journey to become a skilled UI/UX
-              Designer. I love creating intuitive and beautiful digital
-              experiences.
-            </p>
-
-            <div className="animate-fade-up-delay-3 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button
-                size="lg"
-                className="group bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8"
-                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                View Projects
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="rounded-full px-8 border-border hover:bg-secondary"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Contact Me
-              </Button>
+            <div>
+              <p className="text-[11px] tracking-[0.2em] text-muted-foreground mb-3">
+                SERVICES
+              </p>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                UI/UX Design
+                <br />
+                Dashboard Design
+                <br />
+                Wireframing
+              </p>
             </div>
           </div>
 
-          {/* Profile Image */}
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="animate-fade-up relative">
-              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-                {/* Decorative ring */}
-                <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary/30 animate-spin" style={{ animationDuration: '20s' }} />
-                
-                {/* Image container */}
-                <div className="absolute inset-4 rounded-full overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5 card-shadow">
-                  <div className="w-full h-full bg-secondary flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center">
-                        <span className="text-4xl md:text-5xl font-bold text-primary">NG</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Floating elements */}
-                <div className="absolute -top-4 -right-4 w-12 h-12 bg-primary/20 rounded-lg animate-float" />
-                <div className="absolute -bottom-2 -left-6 w-8 h-8 bg-primary/30 rounded-full animate-float" style={{ animationDelay: '1s' }} />
+          {/* Center - Profile Image */}
+          <div className="order-1 lg:order-2 flex justify-center animate-scale-in">
+            <div className="relative">
+              <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-background shadow-2xl">
+                <img
+                  src={profilePhoto}
+                  alt="Nikhil Gudla"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
+          </div>
+
+          {/* Right content - Stats */}
+          <div className="order-3 space-y-8 text-right animate-fade-up-delay-2">
+            {stats.map((stat, index) => (
+              <div key={stat.label}>
+                <p className="text-[11px] tracking-[0.2em] text-muted-foreground mb-1">
+                  {stat.label.toUpperCase()}
+                </p>
+                <p className="font-display text-4xl md:text-5xl lg:text-6xl">
+                  {stat.value}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block">
-          <div className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center pt-2">
-            <div className="w-1.5 h-3 bg-primary rounded-full animate-bounce" />
+        <div className="flex justify-center mt-16 lg:mt-24 animate-fade-up-delay-3">
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-[10px] tracking-[0.2em] text-muted-foreground">
+              SCROLL DOWN
+            </span>
+            <div className="w-px h-12 bg-border" />
           </div>
         </div>
       </div>
